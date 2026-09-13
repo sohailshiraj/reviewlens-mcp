@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "checks": {
+    "requireTestsForLogicChanges": {
+      "enabled": true,
+      "severity": "warning",
+      "logicFilePatterns": [
+        "^src/.*\\.(ts|tsx)$"
+      ],
+      "testFilePatterns": [
+        "(^|/)(test|tests|__tests__)(/|$)",
+        "\\.(test|spec)\\.(ts|tsx)$"
+      ],
+      "excludePatterns": [
+        "\\.(md|json|ya?ml)$",
+        "^src/types/"
+      ]
+    },
+    "flagTodoFixme": {
+      "enabled": true,
+      "severity": "info",
+      "markers": ["TODO", "FIXME", "XXX"]
+    },
+    "namingConventions": {
+      "enabled": true,
+      "severity": "warning",
+      "rules": [
+        {
+          "filePattern": "^src/components/.*\\.tsx$",
+          "description": "React component files must be PascalCase",
+          "namePattern": "^[A-Z][a-zA-Z0-9]*\\.tsx$"
+        }
+      ]
+    },
+    "unhandledErrorPaths": {
+      "enabled": true,
+      "severity": "error",
+      "filePatterns": [
+        "^src/.*\\.(ts|tsx)$"
+      ]
+    }
+  }
+}

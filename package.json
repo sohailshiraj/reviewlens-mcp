@@ -1,0 +1,54 @@
+{
+  "name": "reviewlens-mcp",
+  "version": "0.1.0",
+  "description": "MCP server that gives AI clients structured, deterministic facts about a GitHub pull request so they can judge merge-readiness without the human reading the diff line by line.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "reviewlens-mcp": "./dist/server.js"
+  },
+  "main": "./dist/server.js",
+  "files": [
+    "dist",
+    "src/config/defaultRuleset.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node -e \"require('fs').mkdirSync('dist/config',{recursive:true});require('fs').copyFileSync('src/config/defaultRuleset.json','dist/config/defaultRuleset.json')\"",
+    "dev": "tsx watch --env-file-if-exists=.env src/server.ts",
+    "start": "node --env-file-if-exists=.env dist/server.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src test",
+    "lint:fix": "eslint src test --fix",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "@octokit/rest": "^21.1.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@typescript-eslint/eslint-plugin": "^8.19.1",
+    "@typescript-eslint/parser": "^8.19.1",
+    "eslint": "^9.18.0",
+    "msw": "^2.7.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "github",
+    "pull-request",
+    "code-review",
+    "claude"
+  ]
+}

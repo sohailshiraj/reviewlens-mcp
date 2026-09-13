@@ -1,0 +1,5 @@
+[
+  { "commit": { "message": "wip: start password reset flow" } },
+  { "commit": { "message": "add reset token migration" } },
+  { "commit": { "message": "fix lint" } }
+]

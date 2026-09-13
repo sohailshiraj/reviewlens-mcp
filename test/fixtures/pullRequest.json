@@ -1,0 +1,11 @@
+{
+  "title": "Add password reset flow",
+  "body": "Implements the forgot-password flow end to end.",
+  "additions": 120,
+  "deletions": 15,
+  "changed_files": 4,
+  "draft": false,
+  "mergeable": true,
+  "base": { "ref": "main" },
+  "head": { "ref": "feature/password-reset" }
+}

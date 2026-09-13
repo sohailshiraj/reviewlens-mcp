@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "checks": {
+    "requireTestsForLogicChanges": {
+      "enabled": true,
+      "severity": "error",
+      "logicFilePatterns": ["\\.(ts|tsx|js|jsx)$"],
+      "testFilePatterns": ["\\.(test|spec)\\.(ts|tsx|js|jsx)$"],
+      "excludePatterns": ["\\.(md|json)$"]
+    },
+    "flagTodoFixme": {
+      "enabled": false,
+      "severity": "info",
+      "markers": ["TODO", "FIXME"]
+    },
+    "namingConventions": {
+      "enabled": false,
+      "severity": "info",
+      "rules": []
+    },
+    "unhandledErrorPaths": {
+      "enabled": true,
+      "severity": "error",
+      "filePatterns": ["\\.(ts|tsx|js|jsx)$"]
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://raw.githubusercontent.com/your-org/reviewlens-mcp/main/schema/reviewlens.schema.json",
+  "version": 1,
+  "checks": {
+    "requireTestsForLogicChanges": {
+      "enabled": true,
+      "severity": "warning",
+      "logicFilePatterns": [
+        "\\.(ts|tsx|js|jsx|py|go|rb|java|kt|cs|rs)$"
+      ],
+      "testFilePatterns": [
+        "(^|/)(test|tests|__tests__|spec)(/|$)",
+        "\\.(test|spec)\\.(ts|tsx|js|jsx|py|go|rb|java|kt|cs|rs)$",
+        "_test\\.(go|py)$"
+      ],
+      "excludePatterns": [
+        "\\.(md|json|ya?ml|lock|txt|css|scss|svg|png|jpg|jpeg|gif)$",
+        "(^|/)(dist|build|vendor|node_modules|generated)(/|$)"
+      ]
+    },
+    "flagTodoFixme": {
+      "enabled": true,
+      "severity": "info",
+      "markers": ["TODO", "FIXME", "XXX", "HACK"]
+    },
+    "namingConventions": {
+      "enabled": true,
+      "severity": "info",
+      "rules": [
+        {
+          "filePattern": "\\.tsx?$",
+          "description": "TypeScript filenames should be camelCase or PascalCase",
+          "namePattern": "^[a-zA-Z][a-zA-Z0-9]*\\.[a-z]+\\.tsx?$|^[a-zA-Z][a-zA-Z0-9]*\\.tsx?$"
+        }
+      ]
+    },
+    "unhandledErrorPaths": {
+      "enabled": true,
+      "severity": "warning",
+      "filePatterns": [
+        "\\.(ts|tsx|js|jsx)$"
+      ]
+    }
+  }
+}

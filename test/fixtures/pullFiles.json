@@ -1,0 +1,34 @@
+[
+  {
+    "filename": "src/auth/passwordReset.ts",
+    "status": "added",
+    "additions": 80,
+    "deletions": 0,
+    "changes": 80,
+    "patch": "@@ -0,0 +1,10 @@\n+export async function resetPassword(token: string) {\n+  try {\n+    await doReset(token);\n+  } catch (e) {\n+  }\n+}\n+\n+// TODO: send confirmation email\n+export function requestReset(email: string) {\n+  return email;\n+}"
+  },
+  {
+    "filename": "src/routes/authRoutes.ts",
+    "status": "modified",
+    "additions": 30,
+    "deletions": 10,
+    "changes": 40,
+    "patch": "@@ -1,5 +1,5 @@\n router.post('/reset', handler);\n+router.post('/reset/confirm', confirmHandler);"
+  },
+  {
+    "filename": "migrations/2026_09_add_reset_tokens.sql",
+    "status": "added",
+    "additions": 8,
+    "deletions": 0,
+    "changes": 8,
+    "patch": "@@ -0,0 +1,8 @@\n+CREATE TABLE reset_tokens (\n+  id SERIAL PRIMARY KEY\n+);"
+  },
+  {
+    "filename": "README.md",
+    "status": "modified",
+    "additions": 2,
+    "deletions": 5,
+    "changes": 7,
+    "patch": "@@ -1,3 +1,3 @@\n-old text\n+new text"
+  }
+]
