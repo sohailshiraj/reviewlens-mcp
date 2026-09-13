@@ -95,25 +95,9 @@ GITHUB_TOKEN=ghp_xxx npm start
 
 ### Claude Desktop / Cursor config
 
-Add to your MCP client's config (e.g. `claude_desktop_config.json`):
-
-```jsonc
-{
-  "mcpServers": {
-    "reviewlens": {
-      "command": "node",
-      "args": ["/absolute/path/to/reviewlens-mcp/dist/server.js"],
-      "env": {
-        "GITHUB_TOKEN": "ghp_xxx"
-      }
-    }
-  }
-}
-```
-
-Restart your client, then try asking it something like:
-
-> Use reviewlens to summarize PR #123 in octocat/Hello-World and tell me if it's safe to merge.
+See [docs/CLIENT_SETUP.md](docs/CLIENT_SETUP.md) for step-by-step config for both
+clients, plus troubleshooting (config file locations, rebuild-after-change, the
+"tool result too large" limit, etc).
 
 ## Running as a hosted demo (Streamable HTTP)
 
